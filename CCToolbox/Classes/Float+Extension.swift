@@ -13,8 +13,8 @@ extension Float {
         let formatter = NumberFormatter()
         formatter.maximumFractionDigits = numberOfDigits
         formatter.roundingMode = NumberFormatter.RoundingMode.down
-        let truncatedValue = formatter.string(from: NSNumber(value: self))
-        
+        var truncatedValue = formatter.string(from: NSNumber(value: self))
+        truncatedValue = truncatedValue?.replacingOccurrences(of: ",", with: ".") //ana added this
         return Float(truncatedValue!)!
     }
 }
